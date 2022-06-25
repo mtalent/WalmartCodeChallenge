@@ -1,7 +1,8 @@
-package com.talent.walmartcodechallenge
+package com.talent.walmartcodechallenge.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.talent.walmartcodechallenge.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
