@@ -3,22 +3,19 @@ package com.talent.walmartcodechallenge.api
 import com.talent.walmartcodechallenge.view.ResponseState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import retrofit2.Retrofit
 
 
 interface CountriesRepository {
     suspend fun getCountries() : Flow<ResponseState>
 }
 
-class CountriesRepositoryImpl(
-    private val service: Retrofit.Builder
-) : CountriesRepository {
+class CountriesRepositoryImpl(private val apiService: ApiService) : CountriesRepository {
 
     override suspend fun getCountries() =
         flow {
 
             try {
-                val response = service.getCountries()
+                val response = apiService.getCountries()
                 if (response.isSuccessful) {
                     emit(
                         response.body()?.let { ResponseState.SUCCESS(it) }

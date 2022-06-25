@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="4dp"
     android:padding="4dp"
-    android:backgroundTint="@color/teal_700"
+    android:backgroundTint="@color/black"
     app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,6 +37,7 @@
             tools:text="CountryName,CN"
             android:layout_margin="4dp"
             android:ellipsize="end"
+            android:textColor="@color/teal_700"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_flag"
             app:layout_constraintBottom_toTopOf="@id/v_guid_line"
@@ -55,16 +56,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Capital"
+            android:textColor="@color/teal_700"
             app:layout_constraintTop_toBottomOf="@id/v_guid_line"
             app:layout_constraintStart_toStartOf="@id/tv_country_name"/>
         <TextView
             android:id="@+id/tv_country_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/teal_700"
             tools:text="English"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_country_name" />
 
+        <TextView
+            android:id="@+id/tv_country_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/teal_700"
+            android:layout_marginTop="20dp"
+            tools:text="Dollar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_country_language"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

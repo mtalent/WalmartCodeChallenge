@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.talent.walmartcodechallenge.di
 
 import androidx.lifecycle.ViewModel
@@ -9,15 +11,19 @@ import com.talent.walmartcodechallenge.viewmodel.CountriesViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+//import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object DependencyInjection {
 
-    private val service = Retrofit.Builder()
+    private val apiService = Retrofit.Builder()
         .baseUrl(ApiService.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(useOkHttpClient())
+        .build()
+        .create(ApiService::class.java)
+
 
     private fun useOkHttpClient(): OkHttpClient =
         OkHttpClient.Builder()
@@ -29,7 +35,7 @@ object DependencyInjection {
             .writeTimeout(30, TimeUnit.SECONDS)
             .build()
 
-    private fun useRepository() = CountriesRepositoryImpl(service)
+    private fun useRepository() = CountriesRepositoryImpl(apiService)
 
     fun buildViewModel(owner: ViewModelStoreOwner): CountriesViewModel =
         ViewModelProvider(owner, object : ViewModelProvider.Factory {

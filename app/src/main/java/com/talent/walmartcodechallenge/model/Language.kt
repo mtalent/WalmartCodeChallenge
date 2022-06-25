@@ -5,4 +5,6 @@ data class Language(
     val iso639_2: String,
     val name: String,
     val nativeName: String
-)
+) {
+    fun getLanguage(): String = "Language $name"
+}
