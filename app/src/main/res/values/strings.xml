@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WalmartCodeChallenge</string>
+    <string name="flag">flag</string>
 </resources>
