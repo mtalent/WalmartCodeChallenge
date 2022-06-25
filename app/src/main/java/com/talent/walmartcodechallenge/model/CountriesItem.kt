@@ -24,8 +24,15 @@ data class CountriesItem(
     val region: String
 ) {
     fun getCountryName(): String = "$name, $region"
-    // flags link bad
-    // different source for flag
+
+    /**
+     * get flag was broken
+     * on api needed to find
+     * another source this one
+     * uses code from api
+     *
+     * @return
+     */
     fun getFlagImage(): String = "https://countryflagsapi.com/png/$code"
     fun getCountryCapital(): String = "Capital $capital"
 
