@@ -1,5 +1,12 @@
 package com.talent.walmartcodechallenge.model
 
+/**
+ * Model for country currency
+ *
+ * @property code
+ * @property name
+ * @property symbol
+ */
 data class Currency(
     val code: String,
     val name: String,

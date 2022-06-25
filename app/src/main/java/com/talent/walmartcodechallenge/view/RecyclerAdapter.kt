@@ -13,6 +13,11 @@ import com.bumptech.glide.request.target.Target
 import com.talent.walmartcodechallenge.databinding.CountriesItemBinding
 import com.talent.walmartcodechallenge.model.CountriesItem
 
+/**
+ * Recycler adapter
+ *
+ * @property countries
+ */
 class RecyclerAdapter(
     private val countries: MutableList<CountriesItem> = mutableListOf()
 ): RecyclerView.Adapter<RecyclerAdapter.CountriesViewHolder>() {
@@ -38,6 +43,16 @@ class RecyclerAdapter(
                             return false
                         }
 
+                        /**
+                         * success case callback on download image
+                         *
+                         * @param resource
+                         * @param model
+                         * @param target
+                         * @param dataSource
+                         * @param isFirstResource
+                         * @return
+                         */
                         override fun onResourceReady(
                             resource: Drawable?,
                             model: Any?,
@@ -57,6 +72,11 @@ class RecyclerAdapter(
 
     }
 
+    /**
+     * adds to list and sorts by name
+     *
+     * @param newList
+     */
     fun setCountriesList(newList: List<CountriesItem>) {
         countries.apply {
             clear()
@@ -66,6 +86,13 @@ class RecyclerAdapter(
         notifyItemRangeChanged(0,itemCount)
     }
 
+    /**
+     * Inflates the item views
+     *
+     * @param parent
+     * @param viewType
+     * @return
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         CountriesViewHolder(
             CountriesItemBinding.inflate(
@@ -77,9 +104,20 @@ class RecyclerAdapter(
             )
         )
 
+    /**
+     * Binds each item in the ArrayList to a view
+     *
+     * @param holder
+     * @param position
+     */
     override fun onBindViewHolder(holder: CountriesViewHolder, position: Int) {
         holder.onBind(countries[position])
     }
 
+    /**
+     * Gets the number of items in the list
+     *
+     * @return
+     */
     override fun getItemCount() = countries.size
 }

@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.flow
 
 
 interface CountriesRepository {
+
     suspend fun getCountries() : Flow<ResponseState>
 }
 

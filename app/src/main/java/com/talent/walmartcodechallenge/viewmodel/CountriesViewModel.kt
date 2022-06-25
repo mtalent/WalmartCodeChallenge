@@ -10,6 +10,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
+/**
+ * View Model
+ *
+ * @property repository
+ */
 class CountriesViewModel(private val repository: CountriesRepository) : ViewModel() {
 
     private val _countriesLiveData = MutableLiveData<ResponseState>()

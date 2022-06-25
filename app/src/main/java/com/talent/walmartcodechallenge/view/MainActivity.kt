@@ -6,8 +6,6 @@ import com.talent.walmartcodechallenge.di.DependencyInjection
 import com.talent.walmartcodechallenge.databinding.ActivityMainBinding
 
 
-
-
 class MainActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -19,6 +17,13 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by lazy {
         DependencyInjection.buildViewModel(this)
     }
+
+    /**
+     * call and recreate the activity
+     * load all data from savedInstanceState
+     *
+     * @param savedInstanceState
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -26,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         configureObserver()
     }
 
+    /**
+     * observer
+     *
+     */
     private fun configureObserver() {
         viewModel.countriesLiveData.observe(this) {
             when(it) {

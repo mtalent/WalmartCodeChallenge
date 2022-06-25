@@ -1,5 +1,18 @@
 package com.talent.walmartcodechallenge.model
 
+/**
+ * model for all country
+ * items
+ *
+ * @property capital
+ * @property code
+ * @property currency
+ * @property demonym
+ * @property flag
+ * @property language
+ * @property name
+ * @property region
+ */
 data class CountriesItem(
     val capital: String,
     val code: String,
