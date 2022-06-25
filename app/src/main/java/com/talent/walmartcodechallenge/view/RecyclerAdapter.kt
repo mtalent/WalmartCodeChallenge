@@ -26,8 +26,8 @@ class RecyclerAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: CountriesItem) {
             binding.apply {
-                tvCountryName.text = item.getDisplayName()
-                tvCountryCapital.text = item.capital
+                tvCountryName.text = item.getCountryName()
+                tvCountryCapital.text = item.getCountryCapital()
                 tvCountryLanguage.text = item.language.getLanguage()
                 tvCountryCurrency.text = item.currency.getCurrency()
                 Glide.with(ivFlag)
